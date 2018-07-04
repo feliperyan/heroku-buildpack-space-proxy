@@ -32,10 +32,10 @@ http {
 		server_name _;
 		keepalive_timeout 5;
 
-    location ~ /backend/(?<spark_backend>([^/]*))$ {
+    location ~ /set-backend/(?<spark_backend>([^/]*))$ {
       add_header Set-Cookie "backend=$spark_backend;Path=/";
       default_type "text/html";
-      alias /app/space-proxy/nginx/conf/backend.html;
+      alias /app/space-proxy/nginx/conf/set-backend.html;
     }
 
 		location  / {
